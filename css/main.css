@@ -1,0 +1,57 @@
+.menu {
+                background-color: black;
+                padding: 12px;
+                font-size: 100%;
+                letter-spacing: 2px; /* Espaciado entre letras */
+                font: inherit;
+                vertical-align: baseline;
+                text-align: right; /* Menú alineado a la derecha */
+                width: 100%;
+                margin: 0;
+            }
+
+            /* Enlaces del menú */
+            .menu a {
+                color: white; /* Color del texto */
+                text-decoration: none; /* Quita el subrayado */
+                padding: 0 10px; /* Espaciado entre los enlaces */
+                transition: color 0.3s ease;
+            }
+
+            .menu a:hover {
+                color: #ff5722; /* Cambia el color al pasar el cursor */
+            }
+
+            /* Contenedor del menú desplegable */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            /* Contenido del menú desplegable */
+            .dropdown-content {
+                display: none; /* Ocultar por defecto */
+                position: absolute;
+                right: 0; /* Alinea el menú desplegable con el enlace */
+                background-color: black;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                color: white;
+                padding: 10px 15px;
+                display: block; /* Asegura que los enlaces estén en líneas separadas */
+                text-align: left;
+                transition: background-color 0.3s ease, color 0.3s ease;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #ff5722; /* Fondo al pasar el cursor */
+                color: black; /* Cambia el texto al pasar el cursor */
+            }
+
+            /* Mostrar el menú desplegable al pasar el mouse */
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
