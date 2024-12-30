@@ -1,57 +1,149 @@
-.menu {
-                background-color: black;
-                padding: 12px;
-                font-size: 100%;
-                letter-spacing: 2px; /* Espaciado entre letras */
-                font: inherit;
-                vertical-align: baseline;
-                text-align: right; /* Menú alineado a la derecha */
-                width: 100%;
-                margin: 0;
-            }
+/* Estilo global para el body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sans-serif', Arial;
+    background-color: black;
+    color: black;
+}
 
-            /* Enlaces del menú */
-            .menu a {
-                color: white; /* Color del texto */
-                text-decoration: none; /* Quita el subrayado */
-                padding: 0 10px; /* Espaciado entre los enlaces */
-                transition: color 0.3s ease;
-            }
+/* Ajuste para centrar el texto del menú */
+.menu .nav {
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    gap: 20px; /* Espaciado entre elementos */
+}
 
-            .menu a:hover {
-                color: #ff5722; /* Cambia el color al pasar el cursor */
-            }
+/* Estilo del menú desplegable */
+.nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    font-size: 22px;
+}
 
-            /* Contenedor del menú desplegable */
-            .dropdown {
-                position: relative;
-                display: inline-block;
-            }
+.nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
 
-            /* Contenido del menú desplegable */
-            .dropdown-content {
-                display: none; /* Ocultar por defecto */
-                position: absolute;
-                right: 0; /* Alinea el menú desplegable con el enlace */
-                background-color: black;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-                z-index: 1;
-            }
+.nav .dropdown {
+    position: relative;
+    display: inline-block;
+}
 
-            .dropdown-content a {
-                color: white;
-                padding: 10px 15px;
-                display: block; /* Asegura que los enlaces estén en líneas separadas */
-                text-align: left;
-                transition: background-color 0.3s ease, color 0.3s ease;
-            }
+.nav .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: black;
+    font-size: 20px;
+    color: black;
+    min-width: 160px;
+    z-index: 1; /* Asegura que se muestre encima de otros elementos */
+    box-shadow: 1px 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-            .dropdown-content a:hover {
-                background-color: #ff5722; /* Fondo al pasar el cursor */
-                color: black; /* Cambia el texto al pasar el cursor */
-            }
+.nav .dropdown:hover .dropdown-content {
+    display: block;
+}
 
-            /* Mostrar el menú desplegable al pasar el mouse */
-            .dropdown:hover .dropdown-content {
-                display: block;
-            }
+.nav .dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.nav .dropdown-content a:hover {
+    background-color: dimgray;
+}
+
+/* Estilo de los enlaces del menú */
+.menu .nav {
+    display: flex;
+    gap: 15px;
+}
+
+.menu .nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    transition: color 0.3s ease;
+}
+
+.menu .nav a:hover {
+    color: #ff5722;
+}
+
+/* Menú hamburguesa (solo visible en móvil) */
+.menu .hamburger {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Dropdown */
+/* Ajustar el ancho del dropdown al texto */
+.dropdown-content {
+    min-width: unset; /* Remueve el ancho mínimo fijo */
+    width: auto; /* Ajusta automáticamente el ancho al contenido */
+    padding: 5px 0; /* Espaciado vertical */
+    text-align: center; /* Centra el texto dentro del dropdown */
+}
+
+/* Centrar los enlaces dentro del dropdown */
+.dropdown-content a {
+    padding: 10px 15px;
+    text-align: center;
+}
+
+/* Mejoras visuales */
+.dropdown-content a:hover {
+    background-color: #575757;
+}
+
+/* Estilo del contenido principal */
+.content {
+    padding: 20px;
+    text-align: left;
+    background-color: white;
+    color: black;
+}
+
+/* Estilo de títulos y párrafos */
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .menu .nav {
+        display: none;
+        flex-direction: column;
+        background-color: black;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid white;
+    }
+
+    .menu .nav.active {
+        display: flex;
+    }
+
+    .menu .hamburger {
+        display: block;
+    }
+}

@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Página de inicio</title>
-        <link rel="stylesheet" href="css/main.css" />
-    </head>
-    <body>
-        <div class = "menu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de inicio</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+    
+<body>
+    <div class="menu">
+        
+        <nav class="nav">
             <a href="index.html" class="active">Inicio</a>
-            <a href="" class="active">Acerca de nosotros</a>
+            
             <div class="dropdown">
-                <a href="proyectos.html">Proyectos</a>
+                <a>Acerca de nosotros</a>
+                <div class="dropdown-content">
+                    <a href="info/emma.html">Emmanuel Garcia</a>
+                    <a href="info/uzi.html">Uziel Solis</a>
+                    <a href="info/orbe.html">Orbelin Jiménez</a>
+                    <a href="info/edwin.html">Edwin Canché</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <a>Proyectos</a>
                 <div class="dropdown-content">
                     <a href="sistemaasistencia.html">Sistema de Asistencia</a>
                 </div>
             </div>
+            
             <a href="contacto.html">Contáctanos</a>
-        </div>
+        </nav>
         
-        <div class="">
-            <h2>¿Quiénes somos?
-            </h2>
-            <p>Somos estudiantes de la carrera de Ingenieria en Datos e Inteligencia Organizacional en la Universidad del Caribe</p>
-        </div>
-    </body>
+        <div class="hamburger">☰</div>
+    </div>
+
+    <div class="content">
+        <h2>¿Quiénes somos?</h2>
+        <p>
+            Somos estudiantes de la carrera de Ingeniería en Datos e Inteligencia Organizacional en la Universidad del Caribe.
+        </p>
+    </div>
+
+    <script src="js/menu.js"></script>
+</body>
+    
 </html>

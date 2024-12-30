@@ -6,11 +6,32 @@
         <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
-        <div class = "menu">
-            <a href="index.html" class="accion">Inicio</a>
-            <a href="">Acerca de nosotros</a>
-            <a href="proyectos.html">Proyectos</a>
+        <div class="menu">
+        
+        <nav class="nav">
+            <a href="index.html" class="active">Inicio</a>
+            
+            <div class="dropdown">
+                <a>Acerca de nosotros</a>
+                <div class="dropdown-content">
+                    <a href="info/emma.html">Emmanuel Garcia</a>
+                    <a href="info/uzi.html">Uziel Solis</a>
+                    <a href="info/orbe.html">Orbelin Jiménez</a>
+                    <a href="info/edwin.html">Edwin Canché</a>
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <a>Proyectos</a>
+                <div class="dropdown-content">
+                    <a href="sistemaasistencia.html">Sistema de Asistencia</a>
+                </div>
+            </div>
+            
             <a href="contacto.html">Contáctanos</a>
-        </div>
+        </nav>
+        
+        <div class="hamburger">☰</div>
+    </div>
     </body>
 </html>
