@@ -3,119 +3,129 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Sans-serif', Arial;
-    background-color: black;
+    background-color: white;
     color: black;
 }
 
-/* Ajuste para centrar el texto del menú */
-.menu .nav {
+/* Menú principal */
+.menu {
+    position: relative;
+    text-align: center;
+    background-color: black;
+    padding: 10px 20px;
+    color: white;
     display: flex;
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    gap: 20px; /* Espaciado entre elementos */
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-/* Estilo del menú desplegable */
+/* Enlaces principales */
 .nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: black;
-    color: white;
-    padding: 20px 0;
-    font-size: 22px;
+    display: contents;
+    gap: 20px;
+    font-size: 20px;
 }
 
 .nav a {
     text-decoration: none;
     color: white;
-    padding: 10px;
-}
-
-.nav .dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.nav .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: black;
-    font-size: 20px;
-    color: black;
-    min-width: 160px;
-    z-index: 1; /* Asegura que se muestre encima de otros elementos */
-    box-shadow: 1px 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.nav .dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.nav .dropdown-content a {
-    color: black;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-}
-
-.nav .dropdown-content a:hover {
-    background-color: dimgray;
-}
-
-/* Estilo de los enlaces del menú */
-.menu .nav {
-    display: flex;
-    gap: 15px;
-}
-
-.menu .nav a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 15px;
+    padding: 10px 15px;
     transition: color 0.3s ease;
 }
 
-.menu .nav a:hover {
+.nav a:hover {
     color: #ff5722;
 }
 
-/* Menú hamburguesa (solo visible en móvil) */
-.menu .hamburger {
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    font-size: 18px;
+    text-align: left; /* Alineación del texto */
+    z-index: 1;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 5px; /* Bordes redondeados */
+    min-width: 200px; /* Ancho fijo para el menú */
+    padding: 10px 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: translateY(-10px); /* Efecto de deslizamiento */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Restablece el efecto de deslizamiento */
+    left: 0; /* Asegura que el menú se alinee bien */
+}
+
+/* Enlaces del menú desplegable */
+.dropdown-content a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
+    border-radius: 3px; /* Bordes redondeados para el hover */
+}
+
+/* Botón hamburguesa */
+.hamburger {
     display: none;
     font-size: 30px;
     color: white;
     cursor: pointer;
 }
 
-/* Dropdown */
-/* Ajustar el ancho del dropdown al texto */
-.dropdown-content {
-    min-width: unset; /* Remueve el ancho mínimo fijo */
-    width: auto; /* Ajusta automáticamente el ancho al contenido */
-    padding: 5px 0; /* Espaciado vertical */
-    text-align: center; /* Centra el texto dentro del dropdown */
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .menu {
+        padding: 15px;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: black;
+        width: 100%;
+        z-index: 10;
+        border-top: 1px solid white;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .dropdown-content {
+        position: static; /* Ajuste para pantallas pequeñas */
+        box-shadow: none; /* Remueve sombra */
+    }
 }
 
-/* Centrar los enlaces dentro del dropdown */
-.dropdown-content a {
-    padding: 10px 15px;
-    text-align: center;
-}
-
-/* Mejoras visuales */
-.dropdown-content a:hover {
-    background-color: #575757;
-}
-
-/* Estilo del contenido principal */
+/* Contenido principal */
 .content {
     padding: 20px;
-    text-align: left;
     background-color: white;
     color: black;
 }
 
-/* Estilo de títulos y párrafos */
 h2 {
     font-size: 24px;
     margin-bottom: 10px;
@@ -124,26 +134,4 @@ h2 {
 p {
     font-size: 18px;
     line-height: 1.5;
-}
-
-/* Media query para pantallas pequeñas */
-@media (max-width: 768px) {
-    .menu .nav {
-        display: none;
-        flex-direction: column;
-        background-color: black;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        border-top: 1px solid white;
-    }
-
-    .menu .nav.active {
-        display: flex;
-    }
-
-    .menu .hamburger {
-        display: block;
-    }
 }
