@@ -2,26 +2,80 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <title>Página de inicio</title>
+        <title>TechnoWards</title>
         <link rel="stylesheet" href="css/main.css" />
     </head>
     <body>
-        <div class = "menu">
-            <a href="index.html" class="active">Inicio</a>
-            <a href="" class="active">Acerca de nosotros</a>
-            <div class="dropdown">
-                <a href="proyectos.html">Proyectos</a>
-                <div class="dropdown-content">
-                    <a href="sistemaasistencia.html">Sistema de Asistencia</a>
+        
+        <!-- Menú de navegación -->
+        <nav class="navbar" id="mainNav">
+            <div class="navbar-logo">
+                <a href="index.html">
+                    <img src="images/logo_Blanco.png" alt="Logotipo de la Jornada de Ingeniería Industrial" />
+                </a>
+            </div>
+    
+            <button class="menu-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" onclick="toggleMenu()">&#9776;</button>
+    
+            <div class="menu" id="mainMenu">
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-header">
+                        Acerca de
+                        <span class="dropdown-icon" aria-hidden="true">▼</span>
+                    </a>
+                    <div id="nuestraJornada" class="dropdown-content">
+                        <a href="#acerca" class="dropdown-item">Información general</a>
+                        <a href="#objetivo" class="dropdown-item">Objetivo general</a>
+                        <a href="#publico" class="dropdown-item">Público objetivo</a>
+                        <a href="#mision" class="dropdown-item">Misión</a>
+                        <a href="#vision" class="dropdown-item">Visión</a>
+                    </div>
+                </div>
+            
+                <div class="nav-item">
+                    <a href="historia.html" class="nav-link">Historia</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="actividades.html" class="nav-link">Actividades</a>
+                </div>
+
+                <div class="nav-item">
+                    <a href="concurso.html" class="nav-link">Concurso</a>
+                </div>
+      
+                <div class="nav-item">
+                    <a href="constancias.html" class="nav-link">Constancias</a>
+                </div>
+        
+                <div class="nav-item">
+                    <a href="aliados.html" class="nav-link">Aliados</a>
+                </div>
+        
+                <div class="nav-item">
+                    <a href="registro.html" class="nav-link btn-registro">Registro</a>
                 </div>
             </div>
-            <a href="contacto.html">Contáctanos</a>
+        </nav>
+        
+        <header><h1>TechnoWards</h1></header>
+        
+        <div class="info-section">
+            <div class="info-content">
+                <h2>¿Quiénes somos?
+                </h2>
+                <p>Somos estudiantes de la carrera de Ingenieria en Datos e Inteligencia Organizacional en la Universidad del Caribe</p>
+            </div>
+
+            <div class="info-content">
+                <h2>¿Qué hacemos?
+                </h2>
+                <p>Somos estudiantes de la carrera de Ingenieria en Datos e Inteligencia Organizacional en la Universidad del Caribe</p>
+            </div>
         </div>
         
-        <div class="">
-            <h2>¿Quiénes somos?
-            </h2>
-            <p>Somos estudiantes de la carrera de Ingenieria en Datos e Inteligencia Organizacional en la Universidad del Caribe</p>
-        </div>
+        <footer>
+        
+        </footer>
     </body>
 </html>
