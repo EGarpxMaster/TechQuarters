@@ -3,47 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de inicio</title>
+    <title>TechnoWards | Portfolio</title>
+    <!-- Importar fuente desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Importar Vue.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js"></script>
+    <!-- Importar Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
-    
 <body>
-    <div class="menu">
-        
-        <nav class="nav">
-            <a href="index.html" class="active">Inicio</a>
-            
-            <div class="dropdown">
-                <a>Acerca de nosotros</a>
-                <div class="dropdown-content">
-                    <a href="info/emma.html">Emmanuel Garcia</a>
-                    <a href="info/uzi.html">Uziel Solis</a>
-                    <a href="info/orbe.html">Orbelin Jiménez</a>
-                    <a href="info/edwin.html">Edwin Canché</a>
+    <div id="app">
+        <header :class="{ 'scrolled': isScrolled }">
+            <div class="container nav-container">
+                <a href="#" class="logo">
+                    <img src="images/logos/logo_Negro_nt.png" alt="TechnoWards Logo">
+                    <span class="logo-text">TechnoWards</span>
+                </a>
+                
+                <button class="menu-toggle" @click="toggleMenu">
+                    <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+                </button>
+                
+                <div class="nav-links" :class="{ 'show': isMenuOpen }">
+                    <a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }" @click="setActiveSection('home')">Inicio</a>
+                    <a href="#about" class="nav-link" :class="{ 'active': activeSection === 'about' }" @click="setActiveSection('about')">Nosotros</a>
+                    <a href="#team" class="nav-link" :class="{ 'active': activeSection === 'team' }" @click="setActiveSection('team')">Equipo</a>
+                    <a href="#projects" class="nav-link" :class="{ 'active': activeSection === 'projects' }" @click="setActiveSection('projects')">Proyectos</a>
+                    <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }" @click="setActiveSection('contact')">Contacto</a>
                 </div>
             </div>
-            
-            <div class="dropdown">
-                <a>Proyectos</a>
-                <div class="dropdown-content">
-                    <a href="sistemaasistencia.html">Sistema de Asistencia</a>
+        </header>
+        
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Innovando con Datos e Inteligencia</h1>
+                <p>Somos un equipo de estudiantes de Ingeniería en Datos e Inteligencia Organizacional comprometidos con ofrecer soluciones tecnológicas innovadoras.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+                    <a href="#contact" class="btn btn-outline">Contáctanos</a>
                 </div>
             </div>
-            
-            <a href="contacto.html">Contáctanos</a>
-        </nav>
+        </section>
         
-        <div class="hamburger">☰</div>
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Sobre Nosotros</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="images/equipo.jpg" alt="Equipo TechnoWards">
+                    </div>
+                    <div class="about-text">
+                        <h3>¿Quiénes Somos?</h3>
+                        <p>Somos estudiantes de la carrera de Ingeniería en Datos e Inteligencia Organizacional en la Universidad del Caribe. Nuestro equipo se formó con el propósito de aplicar nuestros conocimientos académicos en proyectos reales que impacten positivamente a organizaciones y la sociedad.</p>
+                        
+                        <h3>Nuestra Misión</h3>
+                        <p>Transformar datos en inteligencia accionable mediante soluciones tecnológicas innovadoras que ayuden a las organizaciones a tomar mejores decisiones y optimizar sus procesos.</p>
+                        
+                        <h3>Nuestra Visión</h3>
+                        <p>Ser reconocidos como un referente en el desarrollo de soluciones basadas en datos e inteligencia artificial, formando profesionales altamente capacitados que lideren la transformación digital en México.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="team" class="section" style="background-color: #f1f5f9;">
+            <div class="container">
+                <h2 class="section-title">Nuestro Equipo</h2>
+                <div class="team-container">
+                                    
+                    <div class="team-member" v-for="member in team" :key="member.id">
+                        <div class="member-image">
+                            <img :src="member.image" :alt="member.name">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Edwin Canché</h3>
+                            <p class="member-role">{{member.role}}</p>
+                            <div class="member-social">
+                                <a :href="member.social.linkedin" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                <a :href="member.social.github" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                                <a :href="member.social.email" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member" v-for="member in team" :key="member.id">
+                        <div class="member-image">
+                            <img src="images/emma.jpg" :alt="member.name">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Emmanuel Garcia</h3>
+                            <p class="member-role">Analista de Datos</p>
+                            <div class="member-social">
+                                <a :href="member.social.linkedin" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                <a href="https://github.com/EGarpxMaster" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                                <a href="mailto:emmanuelgarcia0901@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member" v-for="member in team" :key="member.id">
+                        <div class="member-image">
+                            <img :src="member.image" :alt="member.name">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Orbelin Jiménez</h3>
+                            <p class="member-role">Desarrollador Web</p>
+                            <div class="member-social">
+                                <a :href="member.social.linkedin" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                <a :href="member.social.github" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                                <a :href="member.social.email" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member" v-for="member in team" :key="member.id">
+                        <div class="member-image">
+                            <img :src="member.image" :alt="member.name">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">Uziel Solis</h3>
+                            <p class="member-role">{{member.role}}</p>
+                            <div class="member-social">
+                                <a :href="member.social.linkedin" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                                <a :href="member.social.github" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                                <a :href="member.social.email" class="social-icon"><i class="fas fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Nuestros Proyectos</h2>
+                <div class="projects-container">
+                    <div class="project" v-for="project in projects" :key="project.id">
+                        <div class="project-image">
+                            <img src="images/tw2.jpg" :alt="project.title">
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Mantenimiento de Computadoras</span>
+                            <h3 class="project-title">TechnoWards</h3>
+                            <p class="project-description">
+                                TechnoWards es un proyecto que empezó como la mayoría de proyectos. Cuatro amigos que durante clases empezaron su emprendimiento en el negocio de las computadoras.
+                            </p>
+                            <a :href="project.link" class="project-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="projects-container">
+                    <div class="project" v-for="project in projects" :key="project.id">
+                        <div class="project-image">
+                            <img src="images/tw2.jpg" :alt="project.title">
+                        </div>
+                        <div class="project-content">
+                            <span class="project-category">Mantenimiento de Computadoras</span>
+                            <h3 class="project-title">TechnoWards</h3>
+                            <p class="project-description">
+                                TechnoWards es un proyecto que empezó como la mayoría de proyectos. Cuatro amigos que durante clases empezaron su emprendimiento en el negocio de las computadoras.
+                            </p>
+                            <a :href="project.link" class="project-link">Ver proyecto <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <section id="contact" class="section" style="background-color: #f1f5f9;">
+            <div class="container">
+                <h2 class="section-title">Contáctanos</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Ubicación</h4>
+                                <p>Universidad del Caribe, Cancún, Quintana Roo</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:contacto@technowards.com">contacto@technowards.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Teléfono</h4>
+                                <a href="tel:+529982288611">+52 998 228 8611</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/529982288611" target="_blank">Envíanos un mensaje</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <form @submit.prevent="submitForm">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Nombre" v-model="formData.name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email" v-model="formData.email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Asunto" v-model="formData.subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Mensaje" v-model="formData.message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="container">
+                <div class="footer-container">
+                    <div class="footer-about">
+                        <div class="footer-logo">
+                            <img src="images/logos/logo_Blanco_nt.png" alt="TechnoWards Logo">
+                            <span class="footer-logo-text">TechnoWards</span>
+                        </div>
+                        <p>Transformando datos en soluciones inteligentes para un futuro mejor.</p>
+                        <div class="footer-social">
+                            <a href="https://www.facebook.com/profile.php?id=61550645371287" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/jornada_ing_industrial/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/529982288611" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://github.com/technowards" target="_blank"><i class="fab fa-github"></i></a>
+                        </div>
+                        <p class="copyright">
+                                &copy; 2025 TechnoWards.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
-
-    <div class="content">
-        <h2>¿Quiénes somos?</h2>
-        <p>
-            Somos estudiantes de la carrera de Ingeniería en Datos e Inteligencia Organizacional en la Universidad del Caribe.
-        </p>
-    </div>
-
-    <script src="js/menu.js"></script>
-</body>
-    
+    </body>
 </html>
+>>>>>>> Stashed changes
