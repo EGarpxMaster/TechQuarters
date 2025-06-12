@@ -15,17 +15,13 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div id="app">
+    <main id="app">
         <header id="mainNav" :class="{ 'scrolled': isScrolled, 'hidden': isHidden }">
-            <div class="container nav-container">
+            <div class="nav-container">
                 <a href="#" class="logo">
                     <img src="images/logos/logo_Negro_nt.png" alt="TechnoWards Logo">
                     <span class="logo-text">TechnoWards</span>
                 </a>
-                
-                <button class="menu-toggle" @click="toggleMenu">
-                    <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
-                </button>
                 
                 <div class="nav-links" :class="{ 'show': isMenuOpen }">
                     <a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }" @click="setActiveSection('home')">Inicio</a>
@@ -34,11 +30,14 @@
                     <a href="#projects" class="nav-link" :class="{ 'active': activeSection === 'projects' }" @click="setActiveSection('projects')">Proyectos</a>
                     <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }" @click="setActiveSection('contact')">Contacto</a>
                 </div>
+                <button class="menu-toggle" @click="toggleMenu">
+                    <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+                </button>
             </div>
         </header>
         
         <section id="home" class="hero">
-            <div class="container">
+            <div class="containers">
                 <h1>Innovando con Datos e Inteligencia</h1>
                 <p>Somos un equipo de estudiantes de Ingeniería en Datos e Inteligencia Organizacional comprometidos con ofrecer soluciones tecnológicas innovadoras.</p>
                 <div class="hero-buttons">
@@ -49,7 +48,7 @@
         </section>
         
         <section id="about" class="section">
-            <div class="container">
+            <div class="containers">
                 <h2 class="section-title">Sobre Nosotros</h2>
                 <div class="about-content">
                     <div class="about-image">
@@ -71,7 +70,7 @@
         
         <!-- Actualización de la sección de equipo para incluir modales -->
 <section id="team" class="section" style="background-color: #f1f5f9;">
-    <div class="container">
+    <div class="containers">
         <h2 class="section-title">Nuestro Equipo</h2>
         <div class="team-container">
             <!-- Miembro del equipo 1 -->
@@ -360,7 +359,7 @@
         
         <!-- Proyectos -->
         <section id="projects" class="section">
-            <div class="container">
+            <div class="containers">
                 <h2 class="section-title">Nuestros Proyectos</h2>
                 <div class="projects-container">
                     <div class="project" data-modal="modal-project-1">
@@ -467,8 +466,8 @@
             </div>
         </dialog>
                 
-        <section id="contact" class="section" style="background-color: #f1f5f9;">
-            <div class="container">
+        <section id="contact" class="contact" style="background-color: #f1f5f9;">
+            <div class="containers">
                 <h2 class="section-title">Contáctanos</h2>
                 <div class="contact-container">
                     <div class="contact-info">
@@ -537,9 +536,9 @@
                 </div>
             </div>
         </section>
-        
+    </main>
         <footer>
-            <div class="container">
+            <div class="containers">
                 <div class="footer-container">
                     <div class="footer-about">
                         <div class="footer-logo">
@@ -560,576 +559,6 @@
                 </div>
             </div>
         </footer>
-    </div>
-    <script src="js/team-modal.js"></script>
-    <script src="js/project-modal.js"></script>
-    <script src="js/scroll-navbar.js"></script>
-    </body>
-</html>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechnoWards | Portfolio</title>
-    <!-- Importar fuente desde Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Importar Vue.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js"></script>
-    <!-- Importar Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
-    <div id="app">
-        <header id="mainNav" :class="{ 'scrolled': isScrolled, 'hidden': isHidden }">
-            <div class="container nav-container">
-                <a href="#" class="logo">
-                    <img src="images/logos/logo_Negro_nt.png" alt="TechnoWards Logo">
-                    <span class="logo-text">TechnoWards</span>
-                </a>
-                
-                <button class="menu-toggle" @click="toggleMenu">
-                    <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
-                </button>
-                
-                <div class="nav-links" :class="{ 'show': isMenuOpen }">
-                    <a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }" @click="setActiveSection('home')">Inicio</a>
-                    <a href="#about" class="nav-link" :class="{ 'active': activeSection === 'about' }" @click="setActiveSection('about')">Nosotros</a>
-                    <a href="#team" class="nav-link" :class="{ 'active': activeSection === 'team' }" @click="setActiveSection('team')">Equipo</a>
-                    <a href="#projects" class="nav-link" :class="{ 'active': activeSection === 'projects' }" @click="setActiveSection('projects')">Proyectos</a>
-                    <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }" @click="setActiveSection('contact')">Contacto</a>
-                </div>
-            </div>
-        </header>
-        
-        <section id="home" class="hero">
-            <div class="container">
-                <h1>Innovando con Datos e Inteligencia</h1>
-                <p>Somos un equipo de estudiantes de Ingeniería en Datos e Inteligencia Organizacional comprometidos con ofrecer soluciones tecnológicas innovadoras.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
-                    <a href="#contact" class="btn btn-outline">Contáctanos</a>
-                </div>
-            </div>
-        </section>
-        
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">Sobre Nosotros</h2>
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="images/equipo.jpg" alt="Equipo TechnoWards">
-                    </div>
-                    <div class="about-text">
-                        <h3>¿Quiénes Somos?</h3>
-                        <p>Somos estudiantes de la carrera de Ingeniería en Datos e Inteligencia Organizacional en la Universidad del Caribe. Nuestro equipo se formó con el propósito de aplicar nuestros conocimientos académicos en proyectos reales que impacten positivamente a organizaciones y la sociedad.</p>
-                        
-                        <h3>Nuestra Misión</h3>
-                        <p>Transformar datos en inteligencia accionable mediante soluciones tecnológicas innovadoras que ayuden a las organizaciones a tomar mejores decisiones y optimizar sus procesos.</p>
-                        
-                        <h3>Nuestra Visión</h3>
-                        <p>Ser reconocidos como un referente en el desarrollo de soluciones basadas en datos e inteligencia artificial, formando profesionales altamente capacitados que lideren la transformación digital en México.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Actualización de la sección de equipo para incluir modales -->
-<section id="team" class="section" style="background-color: #f1f5f9;">
-    <div class="container">
-        <h2 class="section-title">Nuestro Equipo</h2>
-        <div class="team-container">
-            <!-- Miembro del equipo 1 -->
-            <div class="team-member" data-modal="modal-member-1">
-                <div class="member-image">
-                    <img src="images/edwin.jpg" alt="Edwin Canché">
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Edwin Canché</h3>
-                    <p class="member-role">Instalación y Mantenimiento de Redes</p>
-                    <div class="member-social">
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="mailto:edwin@example.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Miembro del equipo 2 -->
-            <div class="team-member" data-modal="modal-member-2">
-                <div class="member-image">
-                    <img src="images/emma.jpg" alt="Emmanuel Garcia">
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Emmanuel Garcia</h3>
-                    <p class="member-role">Analista de Datos</p>
-                    <div class="member-social">
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/EGarpxMaster" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="mailto:emmanuelgarcia0901@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Miembro del equipo 3 -->
-            <div class="team-member" data-modal="modal-member-3">
-                <div class="member-image">
-                    <img src="images/orbelin.jpg" alt="Orbelin Jiménez Vazquez">
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Orbelin Jiménez</h3>
-                    <p class="member-role">Desarrollador Web</p>
-                    <div class="member-social">
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="mailto:orbelin@example.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Miembro del equipo 4 -->
-            <div class="team-member" data-modal="modal-member-4">
-                <div class="member-image">
-                    <img src="images/uziel.jpg" alt="Uziel Solis">
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Uziel Solis</h3>
-                    <p class="member-role">Mantenimiento de Software</p>
-                    <div class="member-social">
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="mailto:uziel@example.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Modales para los miembros del equipo -->
-<!-- Modal para Edwin Canché -->
-<dialog id="modal-member-1" class="modal team-modal">
-    <div class="modal-container">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-image">
-                    <img src="images/edwin.jpg" alt="Edwin Canché">
-                </div>
-                <div class="modal-title">
-                    <h3>Edwin Canché</h3>
-                    <p class="modal-role">Instalación y Mantenimiento de Redes</p>
-                    <div class="modal-social">
-                        <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-github"></i></a>
-                        <a href="mailto:edwin@example.com" class="modal-social-icon"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="modal-bio">
-                <h4>Sobre mí</h4>
-                <p>Especialista en instalación y configuración de redes con más de 5 años de experiencia. Apasionado por crear infraestructuras robustas y seguras que permitan una comunicación eficiente entre equipos.</p>
-                
-                <h4>Especialidades</h4>
-                <div class="skills-container">
-                    <span class="skill-tag">Redes LAN/WAN</span>
-                    <span class="skill-tag">Configuración de Routers</span>
-                    <span class="skill-tag">Seguridad de Red</span>
-                    <span class="skill-tag">Troubleshooting</span>
-                    <span class="skill-tag">Servidores</span>
-                </div>
-                
-                <h4>Experiencia</h4>
-                <div class="experience-item">
-                    <p class="experience-title">Técnico de Redes Senior</p>
-                    <p class="experience-company">TechnoWards</p>
-                    <p class="experience-period">2020 - Presente</p>
-                </div>
-                
-                <h4>Educación</h4>
-                <div class="education-item">
-                    <p class="education-degree">Ingeniería en Redes y Telecomunicaciones</p>
-                    <p class="education-school">Universidad del Caribe</p>
-                    <p class="education-year">2018</p>
-                </div>
-            </div>
-            
-            <div class="modal-footer">
-                <button class="btn-cerrar-modal modal-button">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</dialog>
-
-<!-- Modal para Emmanuel Garcia -->
-<dialog id="modal-member-2" class="modal team-modal">
-    <div class="modal-container">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-image">
-                    <img src="images/emma.jpg" alt="Emmanuel Garcia">
-                </div>
-                <div class="modal-title">
-                    <h3>Emmanuel Garcia</h3>
-                    <p class="modal-role">Analista de Datos</p>
-                    <div class="modal-social">
-                        <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/EGarpxMaster" target="_blank" class="modal-social-icon"><i class="fab fa-github"></i></a>
-                        <a href="mailto:emmanuelgarcia0901@gmail.com" class="modal-social-icon"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="modal-bio">
-                <h4>Sobre mí</h4>
-                <p>Analista de datos con experiencia en transformar grandes conjuntos de datos en información accionable y visualizaciones claras. Enfocado en descubrir patrones y tendencias que ayuden a la toma de decisiones estratégicas.</p>
-                
-                <h4>Especialidades</h4>
-                <div class="skills-container">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Pandas</span>
-                    <span class="skill-tag">Tableau</span>
-                    <span class="skill-tag">Machine Learning</span>
-                </div>
-                
-                <h4>Experiencia</h4>
-                <div class="experience-item">
-                    <p class="experience-title">Analista de Datos</p>
-                    <p class="experience-company">TechnoWards</p>
-                    <p class="experience-period">2019 - Presente</p>
-                </div>
-                
-                <h4>Educación</h4>
-                <div class="education-item">
-                    <p class="education-degree">Licenciatura en Ciencias de Datos</p>
-                    <p class="education-school">Universidad Tecnológica</p>
-                    <p class="education-year">2019</p>
-                </div>
-            </div>
-            
-            <div class="modal-footer">
-                <button class="btn-cerrar-modal modal-button">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</dialog>
-
-<!-- Modal para Orbelin Jiménez -->
-<dialog id="modal-member-3" class="modal team-modal">
-    <div class="modal-container">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-image">
-                    <img src="images/orbelin.jpg" alt="Orbelin Jiménez">
-                </div>
-                <div class="modal-title">
-                    <h3>Orbelin Jiménez</h3>
-                    <p class="modal-role">Desarrollador Web</p>
-                    <div class="modal-social">
-                        <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-github"></i></a>
-                        <a href="mailto:orbelin@example.com" class="modal-social-icon"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="modal-bio">
-                <h4>Sobre mí</h4>
-                <p>Desarrollador web full-stack con pasión por crear experiencias de usuario intuitivas y atractivas. Especializado en tecnologías web modernas y arquitecturas escalables.</p>
-                
-                <h4>Especialidades</h4>
-                <div class="skills-container">
-                    <span class="skill-tag">HTML/CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Vue.js</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">MongoDB</span>
-                </div>
-                
-                <h4>Experiencia</h4>
-                <div class="experience-item">
-                    <p class="experience-title">Desarrollador Web</p>
-                    <p class="experience-company">TechnoWards</p>
-                    <p class="experience-period">2021 - Presente</p>
-                </div>
-                
-                <h4>Educación</h4>
-                <div class="education-item">
-                    <p class="education-degree">Ingeniería en Sistemas Computacionales</p>
-                    <p class="education-school">Instituto Tecnológico de Cancún</p>
-                    <p class="education-year">2020</p>
-                </div>
-            </div>
-            
-            <div class="modal-footer">
-                <button class="btn-cerrar-modal modal-button">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</dialog>
-
-<!-- Modal para Uziel Solis -->
-<dialog id="modal-member-4" class="modal team-modal">
-    <div class="modal-container">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="modal-image">
-                    <img src="images/uziel.jpg" alt="Uziel Solis">
-                </div>
-                <div class="modal-title">
-                    <h3>Uziel Solis</h3>
-                    <p class="modal-role">Mantenimiento de Software</p>
-                    <div class="modal-social">
-                        <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-github"></i></a>
-                        <a href="mailto:uziel@example.com" class="modal-social-icon"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="modal-bio">
-                <h4>Sobre mí</h4>
-                <p>Especialista en mantenimiento y optimización de software con experiencia en sistemas operativos y aplicaciones empresariales. Enfocado en maximizar el rendimiento y la seguridad de los sistemas informáticos.</p>
-                
-                <h4>Especialidades</h4>
-                <div class="skills-container">
-                    <span class="skill-tag">Windows</span>
-                    <span class="skill-tag">Linux</span>
-                    <span class="skill-tag">Software de Oficina</span>
-                    <span class="skill-tag">Antivirus</span>
-                    <span class="skill-tag">Backups</span>
-                </div>
-                
-                <h4>Experiencia</h4>
-                <div class="experience-item">
-                    <p class="experience-title">Técnico de Mantenimiento</p>
-                    <p class="experience-company">TechnoWards</p>
-                    <p class="experience-period">2020 - Presente</p>
-                </div>
-                
-                <h4>Educación</h4>
-                <div class="education-item">
-                    <p class="education-degree">Técnico Superior en Sistemas Informáticos</p>
-                    <p class="education-school">Centro de Estudios Tecnológicos</p>
-                    <p class="education-year">2019</p>
-                </div>
-            </div>
-            
-            <div class="modal-footer">
-                <button class="btn-cerrar-modal modal-button">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</dialog>
-        
-        <!-- Proyectos -->
-        <section id="projects" class="section">
-            <div class="container">
-                <h2 class="section-title">Nuestros Proyectos</h2>
-                <div class="projects-container">
-                    <div class="project" data-modal="modal-project-1">
-                        <div class="project-image">
-                            <img src="images/tw2.jpg" alt="TechnoWards">
-                        </div>
-                        <div class="project-content">
-                            <span class="project-category">Mantenimiento de Computadoras</span>
-                            <h3 class="project-title">TechnoWards</h3>
-                            <p class="project-description">
-                                TechnoWards es un proyecto que empezó como la mayoría de proyectos. Cuatro amigos que durante clases empezaron su emprendimiento en el negocio de las computadoras.
-                            </p>
-                            <a href="#" class="project-link project-details-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="project" data-modal="modal-project-2">
-                        <div class="project-image">
-                            <img src="images/tw6.jpg" alt="Proyecto 2">
-                        </div>
-                        <div class="project-content">
-                            <span class="project-category">Desarrollo Web</span>
-                            <h3 class="project-title">Sistema de Gestión</h3>
-                            <p class="project-description">
-                                Plataforma de administración integrada para pequeñas y medianas empresas, incluyendo módulos de ventas, inventario y personal.
-                            </p>
-                            <a href="#" class="project-link project-details-link">Ver detalles <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Modales para los proyectos -->
-        <!-- Modal para Proyecto 1 -->
-        <dialog id="modal-project-1" class="modal project-modal">
-            <div class="modal-container">
-                <div class="modal-content">
-                    <h3>TechnoWards</h3>
-                    <div class="modal-image">
-                        <img src="images/tw2.jpg" alt="TechnoWards">
-                    </div>
-                    <div class="modal-description">
-                        <p>TechnoWards es un proyecto fundado por cuatro amigos apasionados por la tecnología durante sus estudios universitarios. Lo que comenzó como una idea en las aulas se ha convertido en un servicio completo de mantenimiento, reparación y optimización de equipos informáticos.</p>
-                        
-                        <h4>Servicios que ofrecemos:</h4>
-                        <ul>
-                            <li>Mantenimiento preventivo y correctivo de computadoras</li>
-                            <li>Actualización de hardware y software</li>
-                            <li>Recuperación de datos</li>
-                            <li>Soporte técnico remoto</li>
-                            <li>Instalación de redes</li>
-                        </ul>
-                        
-                        <h4>Tecnologías utilizadas:</h4>
-                        <div class="technologies">
-                            <span class="tech-tag">Windows</span>
-                            <span class="tech-tag">Linux</span>
-                            <span class="tech-tag">macOS</span>
-                            <span class="tech-tag">Networking</span>
-                        </div>
-                    </div>
-                    <div class="modal-actions">
-                        <a href="https://www.facebook.com/profile.php?id=61575732572602&locale=es_LA" class="modal-action-link">Visitar sitio web</a>
-                        <button class="btn-cerrar-modal modal-button">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </dialog>
-        
-        <!-- Modal para Proyecto 2 -->
-        <dialog id="modal-project-2" class="modal project-modal">
-            <div class="modal-container">
-                <div class="modal-content">
-                    <h3>Sistema de Gestión</h3>
-                    <div class="modal-image">
-                        <img src="images/project2.jpg" alt="Sistema de Gestión">
-                    </div>
-                    <div class="modal-description">
-                        <p>Una plataforma completa de administración desarrollada para satisfacer las necesidades específicas de pequeñas y medianas empresas. Este sistema facilita la gestión diaria de operaciones comerciales, inventario y recursos humanos.</p>
-                        
-                        <h4>Características principales:</h4>
-                        <ul>
-                            <li>Gestión integral de ventas e inventario</li>
-                            <li>Control de empleados y horarios</li>
-                            <li>Reportes financieros en tiempo real</li>
-                            <li>Interfaz intuitiva y adaptable a móviles</li>
-                            <li>Integración con plataformas de pago</li>
-                        </ul>
-                        
-                        <h4>Tecnologías utilizadas:</h4>
-                        <div class="technologies">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Express</span>
-                        </div>
-                    </div>
-                    <div class="modal-actions">
-                        <a href="#" class="modal-action-link">Explorar demo</a>
-                        <button class="btn-cerrar-modal modal-button">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </dialog>
-                
-        <section id="contact" class="section" style="background-color: #f1f5f9;">
-            <div class="container">
-                <h2 class="section-title">Contáctanos</h2>
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Ubicación</h4>
-                                <p>Universidad del Caribe, Cancún, Quintana Roo</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <a href="mailto:contacto@technowards.com">contacto@technowards.com</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Teléfono</h4>
-                                <a href="tel:+529982288611">+52 998 228 8611</a>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>WhatsApp</h4>
-                                <a href="https://wa.me/529982288611" target="_blank">Envíanos un mensaje</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form">
-                        <form @submit.prevent="submitForm">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nombre" v-model="formData.name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email" v-model="formData.email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Asunto" v-model="formData.subject" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <textarea class="form-control" placeholder="Mensaje" v-model="formData.message" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn-submit">Enviar Mensaje</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <footer>
-            <div class="container">
-                <div class="footer-container">
-                    <div class="footer-about">
-                        <div class="footer-logo">
-                            <img src="images/logos/logo_Blanco_nt.png" alt="TechnoWards Logo">
-                            <span class="footer-logo-text">TechnoWards</span>
-                        </div>
-                        <p>Transformando datos en soluciones inteligentes para un futuro mejor.</p>
-                        <div class="footer-social">
-                            <a href="https://www.facebook.com/profile.php?id=61550645371287" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/jornada_ing_industrial/" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://wa.me/529982288611" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                            <a href="https://github.com/technowards" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                        <p class="copyright">
-                                &copy; 2025 TechnoWards.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
     <script src="js/team-modal.js"></script>
     <script src="js/project-modal.js"></script>
     <script src="js/scroll-navbar.js"></script>

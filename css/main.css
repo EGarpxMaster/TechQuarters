@@ -39,16 +39,20 @@ header {
     z-index: 1000;
     transition: var(--transition);
 }
-
+main{
+    background-color: var(--primary-color);
+}
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    gap: 1rem;
+    margin: 0 50px;
 }
                 
 .logo {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     text-decoration: none;
 }
@@ -59,14 +63,16 @@ header {
 }
 
 .logo-text {
-    font-size: 1.5rem;
+    font-size: clamp(0.8rem, 0.4138rem + 1.931vw, 1.5rem);
     font-weight: 700;
     color: var(--primary-color);
 }
 
 .nav-links {
     display: flex;
+    justify-content: flex-end;
     gap: 1.5rem;
+    
 }
 
 .nav-link {
@@ -77,6 +83,7 @@ header {
     transition: var(--transition);
     padding: 0.5rem 0;
     position: relative;
+    
 }
 
 .nav-link:after {
@@ -107,17 +114,24 @@ header {
     cursor: pointer;
 }
 
+#home, #about, #team, #projects, #contact,#modal-team, #modal-projects {
+    position: relative;
+    scroll-margin-top: 80px; /* Ajusta el margen superior para el desplazamiento suave */
+    z-index: 5;
+}
 /* Hero section */
 .hero {
     padding-top: 140px;
     padding-bottom: 5rem;
     background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
     text-align: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: clamp(1.5rem, 0.8846rem + 3.0769vw, 3rem);
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
@@ -133,7 +147,18 @@ header {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    
 }
+.hero .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+    
 
 .btn {
     display: inline-block;
@@ -172,7 +197,7 @@ header {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: clamp(1.25rem, 0.9423rem + 1.5385vw, 2rem);
     font-weight: 700;
     color: var(--primary-color);
     text-align: center;
@@ -190,14 +215,22 @@ header {
     left: 50%;
     transform: translateX(-50%);
 }
-   
-.container {
+
+.containers {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
+#about, #projects {
+    background-color: var(--bg-color);
+    padding: 3rem 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
 .about-content {
     margin-top: 3rem;
     display: flex;
@@ -211,6 +244,7 @@ header {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    
 }
 
 .about-image img {
@@ -226,15 +260,17 @@ header {
 
 .about-text {
     flex-grow: 1;
+
 }
 
 .about-text h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.125rem, 0.9712rem + 0.7692vw, 1.5rem);
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
 .about-text p {
+    font-size: clamp(0.875rem, 0.8237rem + 0.2564vw, 1rem);
     margin-bottom: 1rem;
     color: var(--text-color);   
 }
@@ -372,7 +408,7 @@ header {
 }
 
 .team-modal .modal-title h3 {
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 1.0949rem + 1.0256vw, 1.8rem);
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 0.3rem;
@@ -534,7 +570,7 @@ header {
 }
 
 .project-title {
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 0.7949rem + 1.0256vw, 1.5rem);
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
@@ -552,6 +588,7 @@ header {
 }
 
 .project-description {
+    font-size: clamp(0.875rem, 0.8237rem + 0.2564vw, 1rem);
     margin-bottom: 1.5rem;
     color: var(--text-color);
 }
@@ -610,7 +647,7 @@ header {
 }
 
 .project-modal h3 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 1.2949rem + 1.0256vw, 2rem);
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
@@ -707,8 +744,17 @@ header {
     color: var(--card-bg);
 }
 
-
+p{
+    word-spacing: 2px;
+    line-height: 1.5;
+}
 /* Contact section */
+
+.contact {
+    padding: 5rem 0;
+    background-color: var(--primary-color);
+    border-radius: 0 0 60px 60px;
+}
 .contact-container {
     margin-top: 3rem;
     display: grid;
@@ -742,12 +788,13 @@ header {
 }
 
 .contact-text h4 {
-    font-size: 1rem;
+    font-size: clamp(0.875rem, 0.8237rem + 0.2564vw, 1rem);
     color: var(--primary-color);
     margin-bottom: 0.3rem;
 }
 
 .contact-text p, .contact-text a {
+    font-size: clamp(0.875rem, 0.8237rem + 0.2564vw, 1rem);
     color: var(--light-text);
     text-decoration: none;
     transition: var(--transition);
@@ -812,6 +859,14 @@ footer {
     padding: 1rem 0 0.1rem;
     color: white;
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    bottom: 0;
+    z-index: 0;
+    transition: all2s 0.3s ease;
 }
 .footer-container {
     display: grid;
@@ -829,11 +884,11 @@ footer {
 }
 .footer-logo img {
     height: 100px;
-    margin-right: -0.1rem;
+    margin-right: 0.5rem;
 }
         
 .footer-logo-text {
-    font-size: 1.5rem;
+    font-size: clamp(0.8rem, 0.4138rem + 1.931vw, 1.5rem);
     font-weight: 700;
     color: white;
 }
@@ -921,6 +976,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .logo img, .footer-logo-text img{
+    height: 55px;
+    width: auto;
+    margin-right: 0.5rem;
+    }
     .menu-toggle {
         display: block;
     }
@@ -951,18 +1011,10 @@ footer {
         display: none;
     }
     
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    
     .hero p {
         font-size: 1rem;
     }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
+
     .project-modal {
         width: 95%;
     }
@@ -971,10 +1023,7 @@ footer {
         padding: 1.5rem;
     }
     
-    .project-modal h3 {
-        font-size: 1.5rem;
-    }
-    
+ 
     .project-modal .modal-image {
         height: 200px;
     }
@@ -1019,7 +1068,7 @@ footer {
 }
 
 @media (max-width: 576px) {
-    .container {
+    .containers {
         width: 95%;
     }
     
@@ -1033,7 +1082,4 @@ footer {
         text-align: center;
     }
     
-    .hero h1 {
-        font-size: 2rem;
-    }
 }
