@@ -1,13 +1,27 @@
 :root {
     --primary-color: #0f172a;
     --accent-color: #3b82f6;
+    --accent-color-light: #dbeafe;
     --text-color: #334155;
     --light-text: #94a3b8;
     --bg-color: #f8fafc;
     --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --text-color-light: #94a3b8;
     --transition: all 0.3s ease;
 }
-                    
+
+body.dark-mode {
+    --primary-color: #f8fafc;
+    --accent-color: #3b82f6;
+    --accent-color-light: #1e293b;
+    --text-color: #e2e8f0;
+    --light-text: #cbd5e1;
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --border-color: #334155;
+    --text-color-light: #64748b;
+}     
 * {
     margin: 0;
     padding: 0;
@@ -113,11 +127,42 @@ main{
     color: var(--primary-color);
     cursor: pointer;
 }
+.theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+.theme-toggle i {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+.theme-toggle i.fade-out {
+  opacity: 0;
+  transform: rotate(360deg) scale(0.7);
+}
+.theme-toggle:hover {
+  color: var(--btn-color);
+}
+body.dark-mode .theme-toggle {
+    color: var(--accent-color);
+}
+
+.theme-toggle .fa-animate {
+    animation: spin-fade 0.6s;
+}
+
 
 #home, #about, #team, #projects, #contact,#modal-team, #modal-projects {
     position: relative;
     scroll-margin-top: 80px; /* Ajusta el margen superior para el desplazamiento suave */
     z-index: 5;
+    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
 }
 /* Hero section */
 .hero {

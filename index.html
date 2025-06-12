@@ -29,10 +29,14 @@
                     <a href="#team" class="nav-link" :class="{ 'active': activeSection === 'team' }" @click="setActiveSection('team')">Equipo</a>
                     <a href="#projects" class="nav-link" :class="{ 'active': activeSection === 'projects' }" @click="setActiveSection('projects')">Proyectos</a>
                     <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }" @click="setActiveSection('contact')">Contacto</a>
+                    <button class="theme-toggle" @click="toggleDarkMode" :aria-label="isDarkMode ? 'Modo claro' : 'Modo oscuro'">
+                    <i class="fas" :class="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+                    </button>
                 </div>
                 <button class="menu-toggle" @click="toggleMenu">
                     <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
                 </button>
+
             </div>
         </header>
         
@@ -536,7 +540,7 @@
                 </div>
             </div>
         </section>
-    </main>
+    
         <footer>
             <div class="containers">
                 <div class="footer-container">
@@ -559,8 +563,10 @@
                 </div>
             </div>
         </footer>
+        </main>
     <script src="js/team-modal.js"></script>
     <script src="js/project-modal.js"></script>
     <script src="js/scroll-navbar.js"></script>
+
     </body>
 </html>
