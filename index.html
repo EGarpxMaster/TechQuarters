@@ -15,17 +15,13 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div id="app">
+    <main id="app">
         <header id="mainNav" :class="{ 'scrolled': isScrolled, 'hidden': isHidden }">
-            <div class="container nav-container">
+            <div class="nav-container">
                 <a href="#" class="logo">
                     <img src="images/logos/logo_Negro_nt.png" alt="TechnoWards Logo">
                     <span class="logo-text">TechnoWards</span>
                 </a>
-                
-                <button class="menu-toggle" @click="toggleMenu">
-                    <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
-                </button>
                 
                 <div class="nav-links" :class="{ 'show': isMenuOpen }">
                     <a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }" @click="setActiveSection('home')">Inicio</a>
@@ -33,12 +29,19 @@
                     <a href="#team" class="nav-link" :class="{ 'active': activeSection === 'team' }" @click="setActiveSection('team')">Equipo</a>
                     <a href="#projects" class="nav-link" :class="{ 'active': activeSection === 'projects' }" @click="setActiveSection('projects')">Proyectos</a>
                     <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }" @click="setActiveSection('contact')">Contacto</a>
+                    <button class="theme-toggle" @click="toggleDarkMode" :aria-label="isDarkMode ? 'Modo claro' : 'Modo oscuro'">
+                    <i class="fas" :class="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
+                    </button>
                 </div>
+                <button class="menu-toggle" @click="toggleMenu">
+                    <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+                </button>
+
             </div>
         </header>
         
         <section id="home" class="hero">
-            <div class="container">
+            <div class="containers">
                 <h1>Innovando con Datos e Inteligencia</h1>
                 <p>Somos un equipo de estudiantes de Ingeniería en Datos e Inteligencia Organizacional comprometidos con ofrecer soluciones tecnológicas innovadoras.</p>
                 <div class="hero-buttons">
@@ -49,7 +52,7 @@
         </section>
         
         <section id="about" class="section">
-            <div class="container">
+            <div class="containers">
                 <h2 class="section-title">Sobre Nosotros</h2>
                 <div class="about-content">
                     <div class="about-image">
@@ -70,8 +73,8 @@
         </section>
         
         <!-- Actualización de la sección de equipo para incluir modales -->
-<section id="team" class="section" style="background-color: #f1f5f9;">
-    <div class="container">
+<section id="team" class="section">
+    <div class="containers">
         <h2 class="section-title">Nuestro Equipo</h2>
         <div class="team-container">
             <!-- Miembro del equipo 1 -->
@@ -360,7 +363,7 @@
         
         <!-- Proyectos -->
         <section id="projects" class="section">
-            <div class="container">
+            <div class="containers">
                 <h2 class="section-title">Nuestros Proyectos</h2>
                 <div class="projects-container">
                     <div class="project" data-modal="modal-project-1">
@@ -467,8 +470,8 @@
             </div>
         </dialog>
                 
-        <section id="contact" class="section" style="background-color: #f1f5f9;">
-            <div class="container">
+        <section id="contact" class="contact">
+            <div class="containers">
                 <h2 class="section-title">Contáctanos</h2>
                 <div class="contact-container">
                     <div class="contact-info">
@@ -537,9 +540,9 @@
                 </div>
             </div>
         </section>
-        
+    
         <footer>
-            <div class="container">
+            <div class="containers">
                 <div class="footer-container">
                     <div class="footer-about">
                         <div class="footer-logo">
@@ -560,9 +563,10 @@
                 </div>
             </div>
         </footer>
-    </div>
+        </main>
     <script src="js/team-modal.js"></script>
     <script src="js/project-modal.js"></script>
     <script src="js/scroll-navbar.js"></script>
+
     </body>
 </html>
