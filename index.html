@@ -8,36 +8,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Importar Vue.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.global.min.js"></script>
     <!-- Importar Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
     <main id="app">
-        <header id="mainNav" :class="{ 'scrolled': isScrolled, 'hidden': isHidden }">
+        <header id="mainNav">
             <div class="nav-container">
                 <a href="#" class="logo">
-                    <img src="images/logos/logo_Negro_nt.png" src="ïmagenes/logos/logo_Blanco_nt.png" alt="TechnoWards Logo " id="theme-toggle" @click="toggleDarkMode" :aria-label="isDarkMode ? 'Modo claro' : 'Modo oscuro'>
+                    <!-- Logo para modo claro -->
+                    <img src="images/logos/logo_Negro_nt.png" alt="TechnoWards Logo" class="logo-light">
+                    <!-- Logo para modo oscuro -->
+                    <img src="images/logos/logo_Blanco_nt.png" alt="TechnoWards Logo" class="logo-dark">
                     <span class="logo-text">TechnoWards</span>
                 </a>
-                    <ul class="nav-links" :class="{ 'show': isMenuOpen }">
-                        <li><a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }" @click="setActiveSection('home')">Inicio </a></li>
-                        <li><a href="#about" class="nav-link" :class="{ 'active': activeSection === 'about' }" @click="setActiveSection('about')">Nosotros </a></li>
-                        <li><a href="#team" class="nav-link" :class="{ 'active': activeSection === 'team' }" @click="setActiveSection('team')">Equipo </a></li>
-                        <li><a href="#projects" class="nav-link" :class="{ 'active': activeSection === 'projects' }" @click="setActiveSection('projects')">Proyectos </a></li>
-                        <li><a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }" @click="setActiveSection('contact')">Contacto </a></li>
-                        <li>
-                            <button id="theme-toggle" @click="toggleDarkMode" :aria-label="isDarkMode ? 'Modo claro' : 'Modo oscuro'">
-                                <i class="fa-solid fa-moon"></i>
-                            </button>
-                        </li>
-                    </ul>
-                <button class="menu-toggle" @click="toggleMenu">
-                    <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link">Inicio</a></li>
+                    <li><a href="#about" class="nav-link">Nosotros</a></li>
+                    <li><a href="#team" class="nav-link">Equipo</a></li>
+                    <li><a href="#projects" class="nav-link">Proyectos</a></li>
+                    <li><a href="#contact" class="nav-link">Contacto</a></li>
+                    <li>
+                        <button id="theme-toggle" aria-label="Cambiar tema">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+                <button class="menu-toggle" aria-label="Abrir menú de navegación">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
-
+                <div class="nav-overlay"></div>
             </div>
         </header>
         
@@ -572,9 +575,46 @@
             </div>
         </footer>
         </main>
-    <script src="js/team-modal.js"></script>
-    <script src="js/project-modal.js"></script>
-    <script src="js/scroll-navbar.js"></script>
-
-    </body>
+        <script>
+            // Funcionalidad del menú hamburguesa
+            document.addEventListener('DOMContentLoaded', function() {
+                const menuToggle = document.querySelector('.menu-toggle');
+                const navLinks = document.querySelector('.nav-links');
+                const overlay = document.querySelector('.nav-overlay');
+                const body = document.body;
+                
+                function toggleMenu() {
+                    menuToggle.classList.toggle('active');
+                    navLinks.classList.toggle('show');
+                    overlay.classList.toggle('active');
+                    body.style.overflow = navLinks.classList.contains('show') ? 'hidden' : '';
+                }
+                
+                menuToggle.addEventListener('click', toggleMenu);
+                
+                // Cerrar menú al hacer clic en enlaces
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navLinks.classList.contains('show')) {
+                            toggleMenu();
+                        }
+                    });
+                });
+                
+                overlay.addEventListener('click', toggleMenu);
+                
+                // Cerrar menú al redimensionar
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 768 && navLinks.classList.contains('show')) {
+                        toggleMenu();
+                    }
+                });
+            });
+        </script>
+        
+        <script src="js/team-modal.js"></script>
+        <script src="js/project-modal.js"></script>
+        <script src="js/scroll-navbar.js"></script>
+        <script src="js/theme-persist.js"></script>
+</body>
 </html>

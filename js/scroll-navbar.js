@@ -56,4 +56,34 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 300);  
     }, 200); // Espera un poco para que la animación se note
   });
+  // Funcionalidad del botón de tema
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+    
+    // Aplicar tema guardado al cargar
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        enableDarkMode();
+    }
+    
+    themeToggle.addEventListener('click', function() {
+        if (document.body.classList.contains('dark-mode')) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
+    });
+    
+    function enableDarkMode() {
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+    }
+    
+    function disableDarkMode() {
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+    }
+});
 });

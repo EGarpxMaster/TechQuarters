@@ -72,19 +72,37 @@ main{
     gap: 1rem;
     margin: 0 50px;
 }
+.nav-links{
+        position: fixed;
+        transition: left 0.4s ease-in-out;
+        z-index: 1000;
+        right: 5%;
+}
+
 body.dark-mode .logo img{
-    src:url(images/.logo-text)
+    src:url(images/logos/logo_Negro.png)
 }
 .logo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     text-decoration: none;
+    position: relative;
 }
 
 .logo img {
     height: 75px;
     margin-right: 0.5rem;
+    transition: opacity 0.3s ease;
+}
+
+/* Logo para modo claro - visible por defecto */
+.logo-light {
+    display: block;
+}
+
+.logo-dark {
+    display: none;
 }
 
 .logo-text {
@@ -163,8 +181,21 @@ body.dark-mode .logo img{
 #theme-toggle:hover {
     color: var(--btn-color);
 }
+
 body.dark-mode #theme-toggle {
     color: var(--accent-color);
+}
+body.dark-mode .logo-light {
+    display: none;
+}
+
+body.dark-mode .logo-dark {
+    display: block;
+}
+
+/* Asegurar que el texto del logo también cambie de color */
+body.dark-mode .logo-text {
+    color: #f8fafc; /* Color claro para modo oscuro */
 }
 
 /* Animación de salida */
@@ -1063,39 +1094,121 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .logo img, .footer-logo-text img{
-    height: 55px;
-    width: auto;
-    margin-right: 0.5rem;
+   .logo img {
+        height: 55px;
+        width: auto;
+        margin-right: 0.5rem;
     }
+    
     .menu-toggle {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+
+    .menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background-color: var(--primary-color);
+        margin: 2px 0;
+        transition: var(--transition);
+        transform-origin: center;
+        border-radius: 2px;
+    }
+
+    /* Animación cuando el menú está abierto */
+    .menu-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
     }
     
     .nav-links {
         position: fixed;
-        top: 72px;
-        left: 0;
-        width: 100%;
-        background-color: white;
+        top: 0;
+        left: -100%;
+        width: 70%;
+        height: 110vh;
+        gap: 5px;
+        background-color: var(--card-bg);
         flex-direction: column;
         align-items: center;
-        padding: 2rem 0;
-        box-shadow: 0 5px 10px var(--shadow);
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-        transition: var(--transition);
+        justify-content: center;
+        box-shadow: 5px 0 15px var(--shadow);
+        transition: left 0.4s ease-in-out;
+        z-index: 1000;
     }
-            
+    
     .nav-links.show {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
+        left: 0;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .nav-links li {
+        margin:  0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: .5rem;
+        font-size: 1.1rem;
+        width: 100%;
+        color: var(--text-color);
+        transition: all 0.3s ease;
+        gap: 2px;
     }
     
     .nav-link:after {
         display: none;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+        background-color: var(--accent-color-light);
+        color: var(--accent-color);
+    }
+    
+    #theme-toggle {
+        margin: 1rem auto 0;
+        background-color: var(--accent-color-light);
+        border-radius: 50%;
+    }
+    
+    /* Overlay para el menú móvil */
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+    
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
     
     .hero p {
