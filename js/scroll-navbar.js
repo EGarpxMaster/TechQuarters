@@ -18,7 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
     lastScrollTop = scrollTop;
   });
   
-  // --- Modo oscuro con animación ---
+  // ==============================================
+  // =========== MANEJO DEL TEMA OSCURO ===========
+  // ==============================================
+
+  // Mejorar el manejo del tema oscuro
   const toggleBtn = document.getElementById('theme-toggle');
   const icon = toggleBtn.querySelector('i');
 
@@ -46,67 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('theme', 'dark');
         icon.classList.replace('fa-moon', 'fa-sun');
       }
+            themeIcon.classList.remove('fade-out');
+      setTimeout(() => {
+        document.documentElement.classList.remove('theme-transition');
+      }, 300);  
     }, 200); // Espera un poco para que la animación se note
   });
 });
-
-
-const { createApp } = Vue;
-createApp({
-    data() {
-        return {
-            isMenuOpen: false,
-            isDarkMode: false,
-            isScrolled: false,
-            isHidden: false,
-            activeSection: 'home',
-            formData: {
-                name: '',
-                email: '',
-                subject: '',
-                message: ''
-            }
-        }
-    },
-    mounted() {
-        this.isDarkMode = localStorage.getItem('darkMode') === 'true';
-        this.applyDarkMode();
-    },
-    methods: {
-        toggleMenu() {
-            this.isMenuOpen = !this.isMenuOpen;
-        },
-        toggleDarkMode() {
-            this.isDarkMode = !this.isDarkMode;
-            localStorage.setItem('darkMode', this.isDarkMode);
-            this.applyDarkMode();
-
-            // Animación al ícono
-            this.animateDarkIcon();
-        },
-        animateDarkIcon() {
-            // Busca el ícono dentro del botón
-            const btn = document.querySelector('.theme-toggle i');
-            if (btn) {
-                btn.classList.remove('fa-animate'); // Reinicia si ya tiene
-                // Forzar reflow para reiniciar la animación
-                void btn.offsetWidth;
-                btn.classList.add('fa-animate');
-            }
-        },
-        applyDarkMode() {
-            if (this.isDarkMode) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
-        },
-        setActiveSection(section) {
-            this.activeSection = section;
-        },
-        submitForm() {
-            alert('¡Mensaje enviado!');
-            this.formData = { name: '', email: '', subject: '', message: '' };
-        }
-    }
-}).mount('#app');

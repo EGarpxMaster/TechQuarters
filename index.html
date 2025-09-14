@@ -22,17 +22,18 @@
                     <img src="images/logos/logo_Negro_nt.png" alt="TechnoWards Logo">
                     <span class="logo-text">TechnoWards</span>
                 </a>
-                
-                <div class="nav-links" :class="{ 'show': isMenuOpen }">
-                    <a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }" @click="setActiveSection('home')">Inicio</a>
-                    <a href="#about" class="nav-link" :class="{ 'active': activeSection === 'about' }" @click="setActiveSection('about')">Nosotros</a>
-                    <a href="#team" class="nav-link" :class="{ 'active': activeSection === 'team' }" @click="setActiveSection('team')">Equipo</a>
-                    <a href="#projects" class="nav-link" :class="{ 'active': activeSection === 'projects' }" @click="setActiveSection('projects')">Proyectos</a>
-                    <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }" @click="setActiveSection('contact')">Contacto</a>
-                    <button class="theme-toggle" @click="toggleDarkMode" :aria-label="isDarkMode ? 'Modo claro' : 'Modo oscuro'">
-                    <i class="fas" :class="isDarkMode ? 'fa-sun' : 'fa-moon'"></i>
-                    </button>
-                </div>
+                    <ul class="nav-links" :class="{ 'show': isMenuOpen }">
+                        <li><a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }" @click="setActiveSection('home')">Inicio </a></li>
+                        <li><a href="#about" class="nav-link" :class="{ 'active': activeSection === 'about' }" @click="setActiveSection('about')">Nosotros </a></li>
+                        <li><a href="#team" class="nav-link" :class="{ 'active': activeSection === 'team' }" @click="setActiveSection('team')">Equipo </a></li>
+                        <li><a href="#projects" class="nav-link" :class="{ 'active': activeSection === 'projects' }" @click="setActiveSection('projects')">Proyectos </a></li>
+                        <li><a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }" @click="setActiveSection('contact')">Contacto </a></li>
+                        <li>
+                            <button id="theme-toggle" @click="toggleDarkMode" :aria-label="isDarkMode ? 'Modo claro' : 'Modo oscuro'">
+                                <i class="fa-solid fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
                 <button class="menu-toggle" @click="toggleMenu">
                     <i class="fas" :class="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
                 </button>
@@ -80,7 +81,7 @@
             <!-- Miembro del equipo 1 -->
             <div class="team-member" data-modal="modal-member-1">
                 <div class="member-image">
-                    <img src="images/edwin.jpg" alt="Edwin Canché">
+                    <img src="images/dev/isma1.png" alt="Edwin Canché">
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Edwin Canché</h3>
@@ -96,7 +97,7 @@
             <!-- Miembro del equipo 2 -->
             <div class="team-member" data-modal="modal-member-2">
                 <div class="member-image">
-                    <img src="images/emma.jpg" alt="Emmanuel Garcia">
+                    <img src="images/dev/emma" alt="Emmanuel Garcia">
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Emmanuel Garcia</h3>
@@ -112,7 +113,7 @@
             <!-- Miembro del equipo 3 -->
             <div class="team-member" data-modal="modal-member-3">
                 <div class="member-image">
-                    <img src="images/orbelin.jpg" alt="Orbelin Jiménez">
+                    <img src="images/dev/Orbe.png" alt="Orbelin Jiménez">
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Orbelin Jiménez</h3>
@@ -128,7 +129,7 @@
             <!-- Miembro del equipo 4 -->
             <div class="team-member" data-modal="modal-member-4">
                 <div class="member-image">
-                    <img src="images/uziel.jpg" alt="Uziel Solis">
+                    <img src="images/dev/uzi.png" alt="Uziel Solis">
                 </div>
                 <div class="member-info">
                     <h3 class="member-name">Uziel Solis</h3>
@@ -151,7 +152,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-image">
-                    <img src="images/edwin.jpg" alt="Edwin Canché">
+                    <img src="images/dev/isma1.png" alt="Edwin Canché">
                 </div>
                 <div class="modal-title">
                     <h3>Edwin Canché</h3>
@@ -205,7 +206,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-image">
-                    <img src="images/emma.jpg" alt="Emmanuel Garcia">
+                    <img src="images/dev/emma" alt="Emmanuel Garcia">
                 </div>
                 <div class="modal-title">
                     <h3>Emmanuel Garcia</h3>
@@ -259,7 +260,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-image">
-                    <img src="images/orbelin.jpg" alt="Orbelin Jiménez">
+                    <img src="images/dev/Orbe.png" alt="Orbelin Jiménez">
                 </div>
                 <div class="modal-title">
                     <h3>Orbelin Jiménez</h3>
@@ -313,7 +314,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-image">
-                    <img src="images/uziel.jpg" alt="Uziel Solis">
+                    <img src="images/dev/uzi.png" alt="Uziel Solis">
                 </div>
                 <div class="modal-title">
                     <h3>Uziel Solis</h3>
