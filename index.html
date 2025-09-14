@@ -19,7 +19,7 @@
         <header id="mainNav" :class="{ 'scrolled': isScrolled, 'hidden': isHidden }">
             <div class="nav-container">
                 <a href="#" class="logo">
-                    <img src="images/logos/logo_Negro_nt.png" alt="TechnoWards Logo">
+                    <img src="images/logos/logo_Negro_nt.png" src="ïmagenes/logos/logo_Blanco_nt.png" alt="TechnoWards Logo " id="theme-toggle" @click="toggleDarkMode" :aria-label="isDarkMode ? 'Modo claro' : 'Modo oscuro'>
                     <span class="logo-text">TechnoWards</span>
                 </a>
                     <ul class="nav-links" :class="{ 'show': isMenuOpen }">
@@ -79,6 +79,21 @@
         <h2 class="section-title">Nuestro Equipo</h2>
         <div class="team-container">
             <!-- Miembro del equipo 1 -->
+            <div class="team-member" data-modal="modal-member-3">
+                <div class="member-image">
+                    <img src="images/dev/Orbe.png" alt="Orbelin Jiménez">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Orbelin Jiménez</h3>
+                    <p class="member-role">Desarrollador Web</p>
+                    <div class="member-social">
+                        <a href="https://www.linkedin.com/in/orbelin-jim%C3%A9nez-vazquez-046741325/" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/OrbelinJimenezVazquez" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="mailto:orbelinjimenez3@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Miembro del equipo 2 -->
             <div class="team-member" data-modal="modal-member-1">
                 <div class="member-image">
                     <img src="images/dev/isma1.png" alt="Edwin Canché">
@@ -93,8 +108,7 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Miembro del equipo 2 -->
+            <!-- Miembro del equipo 3 -->
             <div class="team-member" data-modal="modal-member-2">
                 <div class="member-image">
                     <img src="images/dev/emma" alt="Emmanuel Garcia">
@@ -108,24 +122,7 @@
                         <a href="mailto:emmanuelgarcia0901@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Miembro del equipo 3 -->
-            <div class="team-member" data-modal="modal-member-3">
-                <div class="member-image">
-                    <img src="images/dev/Orbe.png" alt="Orbelin Jiménez">
-                </div>
-                <div class="member-info">
-                    <h3 class="member-name">Orbelin Jiménez</h3>
-                    <p class="member-role">Desarrollador Web</p>
-                    <div class="member-social">
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-                        <a href="mailto:orbelin@example.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
-            </div>
-            
+            </div>            
             <!-- Miembro del equipo 4 -->
             <div class="team-member" data-modal="modal-member-4">
                 <div class="member-image">
@@ -156,7 +153,7 @@
                 </div>
                 <div class="modal-title">
                     <h3>Edwin Canché</h3>
-                    <p class="modal-role">Instalación y Mantenimiento de Redes</p>
+                    <p class="modal-role">Redes y Analista de Datos</p>
                     <div class="modal-social">
                         <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-linkedin"></i></a>
                         <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-github"></i></a>
@@ -167,29 +164,30 @@
             
             <div class="modal-bio">
                 <h4>Sobre mí</h4>
-                <p>Especialista en instalación y configuración de redes con más de 5 años de experiencia. Apasionado por crear infraestructuras robustas y seguras que permitan una comunicación eficiente entre equipos.</p>
+                <p>Estudiante de Ingeniería en Datos e Inteligencia Organizacional con especial interés en redes de computadoras y análisis de datos. Combino conocimientos técnicos en infraestructura de red con habilidades analíticas para crear soluciones integrales.</p>
                 
                 <h4>Especialidades</h4>
                 <div class="skills-container">
                     <span class="skill-tag">Redes LAN/WAN</span>
                     <span class="skill-tag">Configuración de Routers</span>
                     <span class="skill-tag">Seguridad de Red</span>
-                    <span class="skill-tag">Troubleshooting</span>
-                    <span class="skill-tag">Servidores</span>
+                    <span class="skill-tag">Análisis de Datos</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
                 </div>
                 
                 <h4>Experiencia</h4>
                 <div class="experience-item">
-                    <p class="experience-title">Técnico de Redes Senior</p>
+                    <p class="experience-title">Asistente en Infraestructura de Red</p>
                     <p class="experience-company">TechnoWards</p>
                     <p class="experience-period">2020 - Presente</p>
                 </div>
                 
                 <h4>Educación</h4>
                 <div class="education-item">
-                    <p class="education-degree">Ingeniería en Redes y Telecomunicaciones</p>
+                    <p class="education-degree">Ingeniería en Datos e Inteligencia Organizacional</p>
                     <p class="education-school">Universidad del Caribe</p>
-                    <p class="education-year">2018</p>
+                    <p class="education-year">2020 - 2025 (en curso)</p>
                 </div>
             </div>
             
@@ -241,9 +239,9 @@
                 
                 <h4>Educación</h4>
                 <div class="education-item">
-                    <p class="education-degree">Licenciatura en Ciencias de Datos</p>
-                    <p class="education-school">Universidad Tecnológica</p>
-                    <p class="education-year">2019</p>
+                    <p class="education-degree">Ingeniería en Datos e Inteligencia Organizacional</p>
+                    <p class="education-school">Universidad del Caribe</p>
+                    <p class="education-year">2020 - 2025 (en curso)</p>
                 </div>
             </div>
             
@@ -275,29 +273,36 @@
             
             <div class="modal-bio">
                 <h4>Sobre mí</h4>
-                <p>Desarrollador web full-stack con pasión por crear experiencias de usuario intuitivas y atractivas. Especializado en tecnologías web modernas y arquitecturas escalables.</p>
+                <p>Estudiante de Ingeniería en Datos e Inteligencia Organizacional practicando para convertirme en desarrollador full stack. Actualmente me especializo en diseño frontend con conocimientos básicos de backend. He participado en el desarrollo de varias páginas web incluyendo esta y el sitio de la Jornada de Ingeniería Industrial de la Universidad del Caribe.</p>
                 
                 <h4>Especialidades</h4>
                 <div class="skills-container">
                     <span class="skill-tag">HTML/CSS</span>
                     <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">React</span>
                     <span class="skill-tag">Vue.js</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">Angular</span>
+                    <span class="skill-tag">Análisis de Datos</span>
                 </div>
                 
                 <h4>Experiencia</h4>
                 <div class="experience-item">
-                    <p class="experience-title">Desarrollador Web</p>
+                    <p class="experience-title">Desarrollador Frontend</p>
                     <p class="experience-company">TechnoWards</p>
                     <p class="experience-period">2021 - Presente</p>
+                </div>
+                <div class="experience-item">
+                    <p class="experience-title">Diseñador Web Freelance</p>
+                    <p class="experience-company">Proyectos Independientes</p>
+                    <p class="experience-period">2020 - Presente</p>
                 </div>
                 
                 <h4>Educación</h4>
                 <div class="education-item">
-                    <p class="education-degree">Ingeniería en Sistemas Computacionales</p>
-                    <p class="education-school">Instituto Tecnológico de Cancún</p>
-                    <p class="education-year">2020</p>
+                    <p class="education-degree">Ingeniería en Datos e Inteligencia Organizacional</p>
+                    <p class="education-school">Universidad del Caribe</p>
+                    <p class="education-year">2020 - 2025 (en curso)</p>
                 </div>
             </div>
             
@@ -318,7 +323,7 @@
                 </div>
                 <div class="modal-title">
                     <h3>Uziel Solis</h3>
-                    <p class="modal-role">Mantenimiento de Software</p>
+                    <p class="modal-role">Analista de Datos y Mantenimiento de Software</p>
                     <div class="modal-social">
                         <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-linkedin"></i></a>
                         <a href="#" target="_blank" class="modal-social-icon"><i class="fab fa-github"></i></a>
@@ -329,29 +334,30 @@
             
             <div class="modal-bio">
                 <h4>Sobre mí</h4>
-                <p>Especialista en mantenimiento y optimización de software con experiencia en sistemas operativos y aplicaciones empresariales. Enfocado en maximizar el rendimiento y la seguridad de los sistemas informáticos.</p>
+                <p>Estudiante de Ingeniería en Datos e Inteligencia Organizacional especializándome en análisis de datos y mantenimiento de software. Apasionado por transformar datos en insights valiosos y garantizar el óptimo funcionamiento de los sistemas informáticos.</p>
                 
                 <h4>Especialidades</h4>
                 <div class="skills-container">
-                    <span class="skill-tag">Windows</span>
-                    <span class="skill-tag">Linux</span>
-                    <span class="skill-tag">Software de Oficina</span>
-                    <span class="skill-tag">Antivirus</span>
-                    <span class="skill-tag">Backups</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Análisis de Datos</span>
+                    <span class="skill-tag">Windows/Linux</span>
+                    <span class="skill-tag">Mantenimiento Software</span>
+                    <span class="skill-tag">Visualización de Datos</span>
                 </div>
                 
                 <h4>Experiencia</h4>
                 <div class="experience-item">
-                    <p class="experience-title">Técnico de Mantenimiento</p>
+                    <p class="experience-title">Practicante en Análisis de Datos</p>
                     <p class="experience-company">TechnoWards</p>
-                    <p class="experience-period">2020 - Presente</p>
+                    <p class="experience-period">2022 - Presente</p>
                 </div>
                 
                 <h4>Educación</h4>
                 <div class="education-item">
-                    <p class="education-degree">Técnico Superior en Sistemas Informáticos</p>
-                    <p class="education-school">Centro de Estudios Tecnológicos</p>
-                    <p class="education-year">2019</p>
+                    <p class="education-degree">Ingeniería en Datos e Inteligencia Organizacional</p>
+                    <p class="education-school">Universidad del Caribe</p>
+                    <p class="education-year">2020 - 2025 (en curso)</p>
                 </div>
             </div>
             
@@ -361,6 +367,7 @@
         </div>
     </div>
 </dialog>
+
         
         <!-- Proyectos -->
         <section id="projects" class="section">
