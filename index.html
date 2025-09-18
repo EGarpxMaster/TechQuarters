@@ -11,6 +11,9 @@
     <!-- Importar Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <!-- Librerías de animación -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
 </head>
 <body>
     <main id="app">
@@ -45,15 +48,19 @@
         </header>
         
         <section id="home" class="hero">
-            <div class="containers">
-                <h1>Innovando con Datos e Inteligencia</h1>
-                <p>Somos un equipo de estudiantes de Ingeniería en Datos e Inteligencia Organizacional comprometidos con ofrecer soluciones tecnológicas innovadoras.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
-                    <a href="#contact" class="btn btn-outline">Contáctanos</a>
+            <div id="particles-js"></div>
+            <div class="hero-content">
+                <div class="containers">
+                    <h1 id="typed-text"></h1>
+                    <p>Somos un equipo de estudiantes de Ingeniería en Datos e Inteligencia Organizacional comprometidos con ofrecer soluciones tecnológicas innovadoras.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+                        <a href="#contact" class="btn btn-outline">Contáctanos</a>
+                    </div>
                 </div>
             </div>
         </section>
+        
         
         <section id="about" class="section">
             <div class="containers">
@@ -576,45 +583,165 @@
         </footer>
         </main>
         <script>
-            // Funcionalidad del menú hamburguesa
-            document.addEventListener('DOMContentLoaded', function() {
-                const menuToggle = document.querySelector('.menu-toggle');
-                const navLinks = document.querySelector('.nav-links');
-                const overlay = document.querySelector('.nav-overlay');
-                const body = document.body;
-                
-                function toggleMenu() {
-                    menuToggle.classList.toggle('active');
-                    navLinks.classList.toggle('show');
-                    overlay.classList.toggle('active');
-                    body.style.overflow = navLinks.classList.contains('show') ? 'hidden' : '';
-                }
-                
-                menuToggle.addEventListener('click', toggleMenu);
-                
-                // Cerrar menú al hacer clic en enlaces
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (navLinks.classList.contains('show')) {
-                            toggleMenu();
+       // Inicializar AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+            
+            // Inicializar Typed.js para el título principal
+            new Typed('#typed-text', {
+                strings: ['Innovando con Datos e Inteligencia', 'Soluciones Tecnológicas Avanzadas', 'Transformando Ideas en Realidad'],
+                typeSpeed: 50,
+                backSpeed: 30,
+                backDelay: 2000,
+                loop: true
+            });
+            
+            // Inicializar Particles.js
+            particlesJS('particles-js', {
+                particles: {
+                    number: {
+                        value: 80,
+                        density: {
+                            enable: true,
+                            value_area: 800
                         }
-                    });
-                });
-                
-                overlay.addEventListener('click', toggleMenu);
-                
-                // Cerrar menú al redimensionar
-                window.addEventListener('resize', () => {
-                    if (window.innerWidth > 768 && navLinks.classList.contains('show')) {
+                    },
+                    color: {
+                        value: "#3b82f6"
+                    },
+                    shape: {
+                        type: "circle",
+                        stroke: {
+                            width: 0,
+                            color: "#000000"
+                        }
+                    },
+                    opacity: {
+                        value: 0.5,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 1,
+                            opacity_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    size: {
+                        value: 3,
+                        random: true,
+                        anim: {
+                            enable: true,
+                            speed: 2,
+                            size_min: 0.1,
+                            sync: false
+                        }
+                    },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: "#3b82f6",
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: {
+                        onhover: {
+                            enable: true,
+                            mode: "grab"
+                        },
+                        onclick: {
+                            enable: true,
+                            mode: "push"
+                        },
+                        resize: true
+                    },
+                    modes: {
+                        grab: {
+                            distance: 140,
+                            line_linked: {
+                                opacity: 1
+                            }
+                        },
+                        push: {
+                            particles_nb: 4
+                        }
+                    }
+                },
+                retina_detect: true
+            });
+            
+            // Inicializar ScrollReveal
+            ScrollReveal().reveal('.section-title', {
+                delay: 200,
+                distance: '20px',
+                origin: 'top',
+                easing: 'ease-in-out'
+            });
+            
+            ScrollReveal().reveal('.team-member, .project', {
+                delay: 300,
+                distance: '50px',
+                origin: 'bottom',
+                interval: 100,
+                easing: 'ease-in-out'
+            });
+            
+            // Funcionalidad del menú hamburguesa
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const overlay = document.querySelector('.nav-overlay');
+            const body = document.body;
+            
+            function toggleMenu() {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('show');
+                overlay.classList.toggle('active');
+                body.style.overflow = navLinks.classList.contains('show') ? 'hidden' : '';
+            }
+            
+            menuToggle.addEventListener('click', toggleMenu);
+            
+            // Cerrar menú al hacer clic en enlaces
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('show')) {
                         toggleMenu();
                     }
                 });
             });
+            
+            overlay.addEventListener('click', toggleMenu);
+            
+            // Cerrar menú al redimensionar
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768 && navLinks.classList.contains('show')) {
+                    toggleMenu();
+                }
+            });
+        });
         </script>
-        
+        <!-- Scripts de las librerías -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="https://unpkg.com/scrollreveal"></script>
         <script src="js/team-modal.js"></script>
         <script src="js/project-modal.js"></script>
         <script src="js/scroll-navbar.js"></script>
-        <script src="js/theme-persist.js"></script>
 </body>
 </html>
